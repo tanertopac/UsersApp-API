@@ -25,13 +25,13 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DEPLOYMENT_TARGET}}
+        run: dotnet publish -c Release -o C:\home\site\wwwroot
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ${{env.DEPLOYMENT_TARGET}}
+          path: C:\home\site\wwwroot
 
   deploy:
     runs-on: windows-latest
